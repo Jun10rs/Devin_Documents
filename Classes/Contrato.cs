@@ -1,3 +1,4 @@
+using devindocuments.Menu;
 namespace devindocuments.Classes
 {
     public class Contrato : DevinDocuments
@@ -7,8 +8,9 @@ namespace devindocuments.Classes
         public string Testemunhas{get; set;}
         public DateTime DataExpiracao{get; set;}
 
-        public Contrato(string codigoDocumento, DateTime dataCadastro, string nomeEstabelecimento, string cpnj, 
-            string finalidade, string testemunhas, DateTime dataExpiracao):base(codigoDocumento, dataCadastro, nomeEstabelecimento, cpnj)
+        public Contrato(string codigoDocumento, DateTime dataCadastro, string nomeEstabelecimento, 
+            string cpnj, StatusDocumentoEnum statusDocumentoEnum, string finalidade, string testemunhas, DateTime dataExpiracao):
+            base(codigoDocumento, dataCadastro, nomeEstabelecimento, cpnj, statusDocumentoEnum)
         {
             this.Finalidade = finalidade;
             this.Testemunhas = testemunhas;

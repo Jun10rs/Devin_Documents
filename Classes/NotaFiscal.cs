@@ -10,11 +10,13 @@ namespace devindocuments.Classes
         public decimal ValorTotalImposto{get; set;}
 
         public NotaFiscal(string codigoDocumento, DateTime dataCadastro, string nomeEstabelecimento, string cpnj, 
-            decimal valorNotaFiscal, string nomeProdutoVendido, decimal valorTotalImposto):base(codigoDocumento, dataCadastro, nomeEstabelecimento, cpnj)
+            StatusDocumentoEnum statusDocumentoEnum, decimal valorNotaFiscal, string nomeProdutoVendido, 
+            TipoImpostoEnum tipoImpostoEnum, decimal valorTotalImposto):
+            base(codigoDocumento, dataCadastro, nomeEstabelecimento, cpnj, statusDocumentoEnum)
         {
             this.ValorNotaFiscal = valorNotaFiscal;
             this.NomeProdutoVendido = nomeProdutoVendido;
-            //this.TipoImposto = tipoImpostoEnum;
+            this.TipoImposto = tipoImpostoEnum;
             this.ValorTotalImposto = valorTotalImposto;
         }
 

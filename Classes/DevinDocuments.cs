@@ -53,15 +53,16 @@ namespace devindocuments.Classes
             set{this.IdFuncionario = value;}
         }  
 
-        public DevinDocuments(string codigoDocumento, DateTime dataCadastro, string nomeEstabelecimento, string cpnj)
+        public DevinDocuments(string codigoDocumento, DateTime dataCadastro, string nomeEstabelecimento, string cpnj, StatusDocumentoEnum statusDocumento)
         {
             this.CodigoDocumento = codigoDocumento;
             this.DataCadastro = dataCadastro;
             this.NomeEstabelecimento = nomeEstabelecimento;
             this.CNPJ = cpnj;
+            this.StatusDocumento = statusDocumento;
         }
   
-        public void CadastrarDocumento(LicencaFuncionamento novaLicenca)
+        public void CadastrarDocumento(DevinDocuments devinDocuments)
         {
             Console.WriteLine("Nota fiscal");
         }
