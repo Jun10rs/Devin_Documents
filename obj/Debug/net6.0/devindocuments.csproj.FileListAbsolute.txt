@@ -1,0 +1,15 @@
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\bin\Debug\net6.0\devindocuments.exe
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\bin\Debug\net6.0\devindocuments.deps.json
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\bin\Debug\net6.0\devindocuments.runtimeconfig.json
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\bin\Debug\net6.0\devindocuments.dll
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\bin\Debug\net6.0\devindocuments.pdb
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\obj\Debug\net6.0\devindocuments.csproj.AssemblyReference.cache
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\obj\Debug\net6.0\devindocuments.GeneratedMSBuildEditorConfig.editorconfig
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\obj\Debug\net6.0\devindocuments.AssemblyInfoInputs.cache
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\obj\Debug\net6.0\devindocuments.AssemblyInfo.cs
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\obj\Debug\net6.0\devindocuments.csproj.CoreCompileInputs.cache
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\obj\Debug\net6.0\devindocuments.dll
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\obj\Debug\net6.0\refint\devindocuments.dll
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\obj\Debug\net6.0\devindocuments.pdb
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\obj\Debug\net6.0\devindocuments.genruntimeconfig.cache
+D:\DevinHouse\DotNet\DevinDocuments\devindocuments\obj\Debug\net6.0\ref\devindocuments.dll

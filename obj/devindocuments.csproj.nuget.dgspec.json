@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DevinHouse\\DotNet\\DevinDocuments\\devindocuments\\devindocuments\\devindocuments.csproj": {}
+    "D:\\DevinHouse\\DotNet\\DevinDocuments\\devindocuments\\devindocuments.csproj": {}
   },
   "projects": {
-    "D:\\DevinHouse\\DotNet\\DevinDocuments\\devindocuments\\devindocuments\\devindocuments.csproj": {
+    "D:\\DevinHouse\\DotNet\\DevinDocuments\\devindocuments\\devindocuments.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DevinHouse\\DotNet\\DevinDocuments\\devindocuments\\devindocuments\\devindocuments.csproj",
+        "projectUniqueName": "D:\\DevinHouse\\DotNet\\DevinDocuments\\devindocuments\\devindocuments.csproj",
         "projectName": "devindocuments",
-        "projectPath": "D:\\DevinHouse\\DotNet\\DevinDocuments\\devindocuments\\devindocuments\\devindocuments.csproj",
+        "projectPath": "D:\\DevinHouse\\DotNet\\DevinDocuments\\devindocuments\\devindocuments.csproj",
         "packagesPath": "C:\\Users\\Junior\\.nuget\\packages\\",
-        "outputPath": "D:\\DevinHouse\\DotNet\\DevinDocuments\\devindocuments\\devindocuments\\obj\\",
+        "outputPath": "D:\\DevinHouse\\DotNet\\DevinDocuments\\devindocuments\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Junior\\AppData\\Roaming\\NuGet\\NuGet.Config"

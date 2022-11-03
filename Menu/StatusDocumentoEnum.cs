@@ -1,9 +1,9 @@
-namespace devindocuments.Classes
+namespace devindocuments.Menu
 {
     public enum StatusDocumentoEnum
     {
         Ativo = 1,
         EmTramitacao = 2,
-        Suspenso = 0
+        Suspenso = 3
     }
 }

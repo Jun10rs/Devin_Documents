@@ -1,9 +1,10 @@
+using devindocuments.Menu;
 namespace devindocuments.Classes
 {
     public class DevinDocuments
     {
-        private List<DevinDocuments> _listaDocumentos{get; set;}
-        private int _codigoDocumento;
+        //private List<DevinDocuments> _listaDocumentos{get; set;}
+        private string _codigoDocumento;
         private DateTime _dataCadastro = DateTime.Now;
         private DateTime _dataAlteracao;
         private string _nomeEstabelecimento;
@@ -11,13 +12,12 @@ namespace devindocuments.Classes
         private StatusDocumentoEnum _statusDocumento;
         private int _idFuncionario;
 
-
-        public List<DevinDocuments> ListaDocumentos
-        {
-            get{return this.ListaDocumentos;}
-            set{this.ListaDocumentos = value;}
-        }
-        public int CodigoDocumento
+        // public List<DevinDocuments> ListaDocumentos
+        // {
+        //     get{return this.ListaDocumentos;}
+        //     set{this.ListaDocumentos = value;}
+        // }
+        public string CodigoDocumento
         {
             get{return this.CodigoDocumento;}
             set{this.CodigoDocumento = value;}
@@ -42,7 +42,7 @@ namespace devindocuments.Classes
             get{return this.CNPJ;}
             set{this.CNPJ = value;}
         }
-         public TipoImpostoEnum StatusDocumento
+         public StatusDocumentoEnum StatusDocumento
         {
             get{return this.StatusDocumento;}
             set{this.StatusDocumento = value;}
@@ -51,23 +51,31 @@ namespace devindocuments.Classes
         {
             get{return this.IdFuncionario;}
             set{this.IdFuncionario = value;}
-        }      
-        public void CadastroDocumentos()
+        }  
+
+        public DevinDocuments(string codigoDocumento, DateTime dataCadastro, string nomeEstabelecimento, string cpnj)
         {
-            Console.WriteLine("Documentos Cadastrados");
-        }   
-         public void ListarDocumentos()
+            this.CodigoDocumento = codigoDocumento;
+            this.DataCadastro = dataCadastro;
+            this.NomeEstabelecimento = nomeEstabelecimento;
+            this.CNPJ = cpnj;
+        }
+  
+        public void CadastrarDocumento(LicencaFuncionamento novaLicenca)
+        {
+            Console.WriteLine("Nota fiscal");
+        }
+         public void ListarDocumentos(DevinDocuments devinDocuments)
         {
             Console.WriteLine("Documentos Listados");
         } 
-         public void AlterarItensDocumento()
-        {
-            Console.WriteLine("Itens Alterados");
-        } 
-         public void AlterarStatusDocumento()
-        {
-            Console.WriteLine("Status alterado");
-        } 
-
+        //  public void AlterarItensDocumento(DevinDocuments devinDocuments)
+        // {
+        //     Console.WriteLine("Itens Alterados");
+        // } 
+        //  public void AlterarStatusDocumento()
+        // {
+        //     Console.WriteLine("Status alterado");
+        // } 
     }
 }

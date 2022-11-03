@@ -1,10 +1,9 @@
-namespace devindocuments.Classes
+namespace devindocuments.Menu
 {
     public enum TipoImpostoEnum
     {
-        ICMS,
-        IPI,
-        IOF,
-        Outro
+        ICMS = 1,
+        IPI = 2,
+        IOF = 3,
     }
 }
