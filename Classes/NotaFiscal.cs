@@ -9,38 +9,17 @@ namespace devindocuments.Classes
         public TipoImpostoEnum TipoImposto{get; set;}
         public decimal ValorTotalImposto{get; set;}
 
-        public NotaFiscal(string codigoDocumento, DateTime dataCadastro, string nomeEstabelecimento, string cpnj, 
-            StatusDocumentoEnum statusDocumentoEnum, decimal valorNotaFiscal, string nomeProdutoVendido, 
-            TipoImpostoEnum tipoImpostoEnum, decimal valorTotalImposto):
-            base(codigoDocumento, dataCadastro, nomeEstabelecimento, cpnj, statusDocumentoEnum)
+        public NotaFiscal(DateTime? dataAlteracao, string nomeEstabelecimento, 
+                        string cpnj, StatusDocumentoEnum statusDocumento, int idFuncionario):
+                        base(dataAlteracao,nomeEstabelecimento, cpnj,statusDocumento,idFuncionario)
         {
-            this.ValorNotaFiscal = valorNotaFiscal;
-            this.NomeProdutoVendido = nomeProdutoVendido;
-            this.TipoImposto = tipoImpostoEnum;
-            this.ValorTotalImposto = valorTotalImposto;
+
         }
-
-
-        // public override CadastrarDocumento()
-        // {
-        //     ListaDocumentos.Add(NotaFiscal);
-        // }
-
-        // public decimal ObterValorImpostoIcms()
-        // {
-        //     return 15;
-        // }
-        // public decimal ObterValorImpostoIpi()
-        // {
-        //     return 18;
-        // }
-        // public decimal ObterValorImpostoIof()
-        // {
-        //     return 0.38M;
-        // }
-        // public decimal ObterValorImpostoOutro()
-        // {
-        //     return 5;
-        // }
+        
+        public void CadastrarDocumento(NotaFiscal notaFiscal)
+        {
+            ListaNotaFiscal.Add(notaFiscal);
+            Console.WriteLine(ListaNotaFiscal.Count + "Foi aqui nota");
+        }
     }
 }

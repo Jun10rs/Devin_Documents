@@ -7,13 +7,17 @@ namespace devindocuments.Classes
         public string Endereco{get; set;}
         public AreaAtuacaoEnum AreaAtuacao{get; set;}
 
-        public LicencaFuncionamento(string codigoDocumento, DateTime dataCadastro, string nomeEstabelecimento, 
-            string cpnj, StatusDocumentoEnum statusDocumentoEnum, string endereco):
-            base(codigoDocumento, dataCadastro, nomeEstabelecimento, cpnj, statusDocumentoEnum)
+        public LicencaFuncionamento(DateTime? dataAlteracao, string nomeEstabelecimento, 
+                        string cpnj, StatusDocumentoEnum statusDocumento, int idFuncionario):
+                        base(dataAlteracao,nomeEstabelecimento, cpnj,statusDocumento,
+                        idFuncionario)
         {
-            this.Endereco = endereco;
-            //this.AreaAtuacao = areaAtuacao;
+
         }
-       
+        public void CadastrarDocumento(LicencaFuncionamento licencaFuncionamento)
+        {
+            ListaLicencaFuncionameto.Add(licencaFuncionamento);
+            Console.WriteLine(ListaLicencaFuncionameto.Count + "Foi Licenca");
+        }
     }
 }

@@ -4,6 +4,6 @@ namespace devindocuments.Menu
     {
         ICMS = 1,
         IPI = 2,
-        IOF = 3,
+        IOF = 3
     }
 }

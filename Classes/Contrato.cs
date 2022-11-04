@@ -7,14 +7,18 @@ namespace devindocuments.Classes
         public string Finalidade{get; set;}
         public string Testemunhas{get; set;}
         public DateTime DataExpiracao{get; set;}
-
-        public Contrato(string codigoDocumento, DateTime dataCadastro, string nomeEstabelecimento, 
-            string cpnj, StatusDocumentoEnum statusDocumentoEnum, string finalidade, string testemunhas, DateTime dataExpiracao):
-            base(codigoDocumento, dataCadastro, nomeEstabelecimento, cpnj, statusDocumentoEnum)
+        public Contrato(DateTime? dataAlteracao, string nomeEstabelecimento, 
+                        string cpnj, StatusDocumentoEnum statusDocumento, int idFuncionario):
+                        base(dataAlteracao,nomeEstabelecimento, cpnj,statusDocumento,
+                        idFuncionario)
         {
-            this.Finalidade = finalidade;
-            this.Testemunhas = testemunhas;
-            this.DataExpiracao = dataExpiracao;
+
+        }
+
+        public void CadastrarDocumento(Contrato contrato)
+        {
+            ListaContrato.Add(contrato);
+            Console.WriteLine(ListaContrato.Count + "Foi contrato");
         }
     }
 }
