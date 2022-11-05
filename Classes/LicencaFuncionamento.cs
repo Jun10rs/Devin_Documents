@@ -3,8 +3,8 @@ namespace devindocuments.Classes
 {
     public class LicencaFuncionamento : DevinDocuments
     {
-        public List<LicencaFuncionamento> ListaLicencaFuncionameto{get; set;}
-        public string Endereco{get; set;}
+        //public List<LicencaFuncionamento> ListaLicencaFuncionameto{get; set;}
+        public string? Endereco{get; set;}
         public AreaAtuacaoEnum AreaAtuacao{get; set;}
 
         public LicencaFuncionamento(DateTime? dataAlteracao, string nomeEstabelecimento, 
@@ -16,8 +16,12 @@ namespace devindocuments.Classes
         }
         public void CadastrarDocumento(LicencaFuncionamento licencaFuncionamento)
         {
-            ListaLicencaFuncionameto.Add(licencaFuncionamento);
-            Console.WriteLine(ListaLicencaFuncionameto.Count + "Foi Licenca");
+            ListaDocuments.ListaLicencaFuncionamento.Add(licencaFuncionamento);
+            Console.WriteLine(ListaDocuments.ListaLicencaFuncionamento.Count + "Foi Licenca");
+        }
+        public LicencaFuncionamento()
+        {
+
         }
     }
 }

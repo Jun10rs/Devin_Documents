@@ -3,11 +3,11 @@ namespace devindocuments.Classes
 {
     public class DevinDocuments
     {
-        private string _codigoDocumento;
+        private string? _codigoDocumento;
         private DateTime _dataCadastro;
         private DateTime? _dataAlteracao;
-        private string _nomeEstabelecimento;
-        private string _cpnj;
+        private string? _nomeEstabelecimento;
+        private string? _cpnj;
         private StatusDocumentoEnum _statusDocumento;
         private int _idFuncionario;
 
@@ -52,23 +52,9 @@ namespace devindocuments.Classes
             this._statusDocumento = statusDocumento;
             this._idFuncionario = idFuncionario;
         }
+        public DevinDocuments()
+        {
 
-        
-        // public virtual void CadastrarDocumento(DevinDocuments devinDocuments)
-        // {
-        //     Console.WriteLine("Nota fiscal");
-        // }
-        //  public void ListarDocumentos(DevinDocuments devinDocuments)
-        // {
-        //     Console.WriteLine("Documentos Listados");
-        // } 
-        //  public void AlterarItensDocumento(DevinDocuments devinDocuments)
-        // {
-        //     Console.WriteLine("Itens Alterados");
-        // } 
-        //  public void AlterarStatusDocumento(DevinDocuments devinDocuments)
-        // {
-        //     Console.WriteLine("Status alterado");
-        // } 
+        }
     }
 }
