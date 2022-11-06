@@ -1,21 +1,24 @@
-using devindocuments.Menu;
+using devindocuments.Menu.MenuEnum;
+using devindocuments.Relatorios;
 namespace devindocuments.Classes
 {
     public class NotaFiscal : DevinDocuments
     {
-        //public List<NotaFiscal> ListaNotaFiscal{get; set;}
-        public decimal? ValorNotaFiscal { get; set; }
-        public string? NomeProdutoVendido { get; set; }
+        public decimal ValorNotaFiscal { get; set; }
+        public string NomeProdutoVendido { get; set; }
         public TipoImpostoEnum TipoImposto { get; set; }
         public decimal ValorTotalImposto { get; set; }
 
         public NotaFiscal(DateTime? dataAlteracao, string nomeEstabelecimento,
-                        string cpnj, StatusDocumentoEnum statusDocumento, int idFuncionario, 
-                        decimal valorNotaFiscal, string nomeProdutoVendido, TipoImpostoEnum tipoImpostoEnum,
-                        decimal valorTotalImposto):
-                        base(dataAlteracao, nomeEstabelecimento, cpnj, statusDocumento, idFuncionario)
+                          string cpnj, StatusDocumentoEnum statusDocumento, int idFuncionario,
+                          decimal valorNotaFiscal, string nomeProdutoVendido, TipoImpostoEnum tipoImpostoEnum,
+                          decimal valorTotalImposto) :
+                          base(dataAlteracao, nomeEstabelecimento, cpnj, statusDocumento, idFuncionario)
         {
-
+            this.ValorNotaFiscal = valorNotaFiscal;
+            this.NomeProdutoVendido = nomeProdutoVendido;
+            this.TipoImposto = tipoImpostoEnum;
+            this.ValorTotalImposto = valorTotalImposto;
         }
         public NotaFiscal()
         {
@@ -25,7 +28,6 @@ namespace devindocuments.Classes
         public void CadastrarDocumento(NotaFiscal notaFiscal)
         {
             ListaDocuments.ListaNotaFiscal.Add(notaFiscal);
-            Console.WriteLine(ListaDocuments.ListaNotaFiscal.Count + "Foi aqui nota");
         }
 
         public void ListarDocumentos()
@@ -41,10 +43,11 @@ namespace devindocuments.Classes
             {
                 foreach (var item in ListaDocuments.ListaNotaFiscal)
                 {
-                    Console.WriteLine($"===================== RELATÓRIO NOTAS FISCAIS =====================\n" +
+                    Console.WriteLine($"====================== RELATÓRIO NOTAS FISCAIS ======================\n" +
                     $"Id do Funcionario: {item.IdFuncionario}\n" +
                     $"Codigo do documento: {item.CodigoDocumento}\n" +
                     $"Data de Cadastro: {item.DataCadastro}\n" +
+                    $"Data Alteração: {item.DataAlteracao}\n" +
                     $"Nome Estabelecimento {item.NomeEstabelecimento}\n" +
                     $"Numero CNPJ: {item.CNPJ}\n" +
                     $"Status do Documento: {item.StatusDocumento}\n" +
@@ -52,9 +55,9 @@ namespace devindocuments.Classes
                     $"Nome do Produto Vendido: {item.NomeProdutoVendido}\n" +
                     $"Tipo de Imposto: {item.TipoImposto}\n" +
                     $"Valor Total imposto: {item.ValorTotalImposto}\n" +
-                    $"===================== RELATÓRIO NOTAS FISCAIS =====================\n");
+                    $"====================== RELATÓRIO NOTAS FISCAIS ======================\n");
                 }
             }
-        }       
+        }
     }
 }

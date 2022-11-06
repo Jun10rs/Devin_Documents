@@ -1,19 +1,20 @@
-using devindocuments.Menu;
+using devindocuments.Menu.MenuEnum;
+using devindocuments.Relatorios;
 namespace devindocuments.Classes
 {
     public class LicencaFuncionamento : DevinDocuments
     {
-        //public List<LicencaFuncionamento> ListaLicencaFuncionameto{get; set;}
         public string Endereco { get; set; }
         public AreaAtuacaoEnum AreaAtuacao { get; set; }
 
         public LicencaFuncionamento(DateTime? dataAlteracao, string nomeEstabelecimento,
-                        string cpnj, StatusDocumentoEnum statusDocumento, int idFuncionario, 
-                        string endereco, AreaAtuacaoEnum areaAtuacaoEnum):
-                        base(dataAlteracao, nomeEstabelecimento, cpnj, statusDocumento,
-                        idFuncionario)
+                                    string cpnj, StatusDocumentoEnum statusDocumento, int idFuncionario,
+                                    string endereco, AreaAtuacaoEnum areaAtuacaoEnum) :
+                                    base(dataAlteracao, nomeEstabelecimento, cpnj, statusDocumento,
+                                    idFuncionario)
         {
-        
+            this.Endereco = endereco;
+            this.AreaAtuacao = areaAtuacaoEnum;
         }
         public LicencaFuncionamento()
         {
@@ -22,7 +23,6 @@ namespace devindocuments.Classes
         public void CadastrarDocumento(LicencaFuncionamento licencaFuncionamento)
         {
             ListaDocuments.ListaLicencaFuncionamento.Add(licencaFuncionamento);
-            Console.WriteLine(ListaDocuments.ListaLicencaFuncionamento.Count + "Foi Licenca");
         }
         public void ListarDocumentos()
         {
@@ -41,6 +41,7 @@ namespace devindocuments.Classes
                                       $"Id do Funcionario: {item.IdFuncionario}\n" +
                                       $"Codigo do documento: {item.CodigoDocumento}\n" +
                                       $"Data de Cadastro: {item.DataCadastro}\n" +
+                                      $"Data Alteração: {item.DataAlteracao}\n" +
                                       $"Nome Estabelecimento {item.NomeEstabelecimento}\n" +
                                       $"Numero CNPJ: {item.CNPJ}\n" +
                                       $"Status do Documento: {item.StatusDocumento}\n" +
@@ -49,6 +50,6 @@ namespace devindocuments.Classes
                                       $"=============== RELATÓRIO DE LICENÇA DE FUNCIONAMENTO ===============\n");
                 }
             }
-        }        
+        }
     }
 }

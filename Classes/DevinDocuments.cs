@@ -1,4 +1,4 @@
-using devindocuments.Menu;
+using devindocuments.Menu.MenuEnum;
 namespace devindocuments.Classes
 {
     public class DevinDocuments
@@ -13,37 +13,38 @@ namespace devindocuments.Classes
 
         public string CodigoDocumento
         {
-            get{return this._codigoDocumento;}
+            get { return this._codigoDocumento; }
         }
         public DateTime DataCadastro
         {
-            get{return this._dataCadastro;}
+            get { return this._dataCadastro; }
         }
         public DateTime? DataAlteracao
         {
-            get{return this._dataAlteracao;}
+            get { return this._dataAlteracao; }
+            set { this._dataAlteracao = value; }
         }
         public string NomeEstabelecimento
         {
-            get{return this._nomeEstabelecimento;}
-            set{this._nomeEstabelecimento = value;}
+            get { return this._nomeEstabelecimento; }
+            set { this._nomeEstabelecimento = value; }
         }
         public string CNPJ
         {
-            get{return this._cpnj;}
-            set{this._cpnj = value;}
+            get { return this._cpnj; }
+            set { this._cpnj = value; }
         }
-         public StatusDocumentoEnum StatusDocumento
+        public StatusDocumentoEnum StatusDocumento
         {
-            get{return this._statusDocumento;}
-            set{this._statusDocumento = value;}
+            get { return this._statusDocumento; }
+            set { this._statusDocumento = value; }
         }
-         public int IdFuncionario
+        public int IdFuncionario
         {
-            get{return this._idFuncionario;}
-        }  
+            get { return this._idFuncionario; }
+        }
 
-        public DevinDocuments(DateTime? dataAlteracao, string nomeEstabelecimento, 
+        public DevinDocuments(DateTime? dataAlteracao, string nomeEstabelecimento,
                                 string cpnj, StatusDocumentoEnum statusDocumento, int idFuncionario)
         {
             this._codigoDocumento = Guid.NewGuid().ToString();

@@ -1,5 +1,7 @@
 ﻿using devindocuments.Classes;
-using devindocuments.Menu;
+using devindocuments.Menu.MenuEnum;
+using devindocuments.Menu.MenuSelecao;
+using devindocuments.Relatorios;
 
 var funcionario = new Pessoa();
 funcionario.IdFuncionario = 001;
@@ -12,7 +14,8 @@ funcionario.DataAdmissao = new DateTime(2002, 08, 15);
 var filtroAtivo = new FiltroListasAtivo();
 var filtroSuspenso = new FiltroListaSuspenso();
 var filtroTramitacao = new FiltroListaTramitacao();
-var AlterarStatus = new AlterarStatus();
+var alterarStatus = new AlterarStatus();
+var alterarItens = new AlterarItens();
 
 NotaFiscal listaNotaFiscal = new NotaFiscal();
 LicencaFuncionamento listaLicencaFuncionamento = new LicencaFuncionamento();
@@ -47,6 +50,7 @@ while (true)
         if (respostaTipoDoc != "1" && respostaTipoDoc != "2" && respostaTipoDoc != "3")
         {
             Console.WriteLine("Digite um valor válido");
+            continue;
         }
         if (respostaTipoDoc == "1")
         {
@@ -86,6 +90,7 @@ while (true)
             );
             listaNotaFiscal.CadastrarDocumento(novaNota);
             Console.WriteLine("===== Nota Fiscal cadastrada com Sucesso =====");
+            continue;
         }
         else if (respostaTipoDoc == "2")
         {
@@ -102,11 +107,11 @@ while (true)
             var statusLicencaEnum = SelecaoStatusEnum.StatusSelecao(Console.ReadLine());
 
             Console.WriteLine("Digite o Endereço");
-            string? endereco = Console.ReadLine();
+            string endereco = Console.ReadLine();
 
             Console.WriteLine("Selecione a Área de Atuação");
             Console.WriteLine($"1 - {AreaAtuacaoEnum.Industrial}\n" +
-                              $"2 - {AreaAtuacaoEnum.Industrial}\n" +
+                              $"2 - {AreaAtuacaoEnum.Agropecuario}\n" +
                               $"3 - {AreaAtuacaoEnum.Metalurgico}\n" +
                               $"4 - {AreaAtuacaoEnum.Tecnologia}\n" +
                               $"5 - {AreaAtuacaoEnum.Outro}\n");
@@ -120,6 +125,7 @@ while (true)
             );
             listaLicencaFuncionamento.CadastrarDocumento(novaLicenca);
             Console.WriteLine("===== Licença de Funcionamento Cadastrada com sucesso =====");
+            continue;
         }
         else if (respostaTipoDoc == "3")
         {
@@ -150,6 +156,7 @@ while (true)
                 statusDocumento: statusContratoEnum, idFuncionario: funcionario.IdFuncionario,
                 finalidade: finalidade, testemunhas: testemunhas, dataExpiracao: dataExpiracao);
             listaContrato.CadastrarDocumento(novoContrato);
+            continue;
         }
     }
     else if (respostaMenu == "2")
@@ -224,15 +231,18 @@ while (true)
     }
     else if (respostaMenu == "3")
     {
-
+        listaNotaFiscal.ListarDocumentos();
+        listaLicencaFuncionamento.ListarDocumentos();
+        listaContrato.ListarDocumentos();
+        alterarItens.AlterarItensDocumento();
     }
     else if (respostaMenu == "4")
     {
-        Console.WriteLine("Foram encontrados estes documentos");
-        filtroAtivo.FiltroListaNotas();
-        filtroAtivo.FiltroListaLicenca();
-        filtroAtivo.FiltroListaContrato();
-        AlterarStatus.AlterarStatusDocumento();
+        listaNotaFiscal.ListarDocumentos();
+        listaLicencaFuncionamento.ListarDocumentos();
+        listaContrato.ListarDocumentos();
+        alterarStatus.AlterarStatusDocumento();
+        continue;
     }
     else if (respostaMenu == "0")
     {

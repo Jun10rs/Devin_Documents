@@ -1,4 +1,4 @@
-namespace devindocuments.Menu
+namespace devindocuments.Menu.MenuEnum
 {
     public enum TipoImpostoEnum
     {

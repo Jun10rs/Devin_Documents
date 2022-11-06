@@ -1,12 +1,11 @@
-using devindocuments.Menu;
-using System.Linq;
+using devindocuments.Menu.MenuEnum;
+using devindocuments.Relatorios;
 namespace devindocuments.Classes
 {
     public class Contrato : DevinDocuments
     {
-        //public static List<Contrato> ListaContrato{get; set;}
-        public string? Finalidade { get; set; }
-        public string? Testemunhas { get; set; }
+        public string Finalidade { get; set; }
+        public string Testemunhas { get; set; }
         public DateTime DataExpiracao { get; set; }
 
         public Contrato(DateTime? dataAlteracao, string nomeEstabelecimento,
@@ -15,7 +14,9 @@ namespace devindocuments.Classes
                         base(dataAlteracao, nomeEstabelecimento, cpnj, statusDocumento,
                         idFuncionario)
         {
-
+            this.Finalidade = finalidade;
+            this.Testemunhas = testemunhas;
+            this.DataExpiracao = dataExpiracao;
         }
         public Contrato()
         {
@@ -25,7 +26,6 @@ namespace devindocuments.Classes
         public void CadastrarDocumento(Contrato contrato)
         {
             ListaDocuments.ListaContrato.Add(contrato);
-            Console.WriteLine(ListaDocuments.ListaContrato.Count + "Foi contrato");
         }
 
         public void ListarDocumentos()
@@ -41,28 +41,20 @@ namespace devindocuments.Classes
             {
                 foreach (var item in ListaDocuments.ListaContrato)
                 {
-                    Console.WriteLine($"================= RELATÓRIO DE CONTRATOS =================\n" +
+                    Console.WriteLine($"====================== RELATÓRIO DE CONTRATOS =======================\n" +
                                       $"Id do Funcionario: {item.IdFuncionario}\n" +
                                       $"Codigo do documento: {item.CodigoDocumento}\n" +
                                       $"Data de Cadastro: {item.DataCadastro}\n" +
+                                      $"Data Alteração: {item.DataAlteracao}\n" +
                                       $"Nome Estabelecimento {item.NomeEstabelecimento}\n" +
                                       $"Numero CNPJ: {item.CNPJ}\n" +
                                       $"Status do Documento: {item.StatusDocumento}\n" +
                                       $"Finalidade: {item.Finalidade}\n" +
                                       $"Testemunhas: {item.Testemunhas}\n" +
                                       $"Data de Expiração: {item.DataExpiracao}\n" +
-                                      $"================= RELATÓRIO DE CONTRATOS =================\n");
+                                      $"====================== RELATÓRIO DE CONTRATOS =======================\n");
                 }
             }
-        }
-      
-        //  public void AlterarItensDocumento(Contrato contrato)
-        // {
-
-        // }
-         public void AlterarStatusDocumento()
-        {
-
         }
         public void TotalRelatorio()
         {
@@ -70,7 +62,7 @@ namespace devindocuments.Classes
             Console.WriteLine($"Foram encontrados {ListaDocuments.ListaNotaFiscal.Count} relatórios de Notas Fiscais\n" +
                               $"Foram encontrados {ListaDocuments.ListaLicencaFuncionamento.Count} relatórios de Licença de Funcionamento\n" +
                               $"Foram encontrados {ListaDocuments.ListaContrato.Count} relatórios de Contratos\n" +
-                              $"Total de Relatótios: {soma}");
+                              $"TOTAL DE RELATÓRIOS: {soma} relatórios");
         }
     }
 }

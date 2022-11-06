@@ -1,4 +1,6 @@
-namespace devindocuments.Menu
+using devindocuments.Menu.MenuEnum;
+
+namespace devindocuments.Menu.MenuSelecao
 {
     public class SelecaoAreaAtuacao
     {

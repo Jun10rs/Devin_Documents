@@ -1,5 +1,6 @@
-using devindocuments.Menu;
-namespace devindocuments.Classes
+using devindocuments.Menu.MenuEnum;
+
+namespace devindocuments.Relatorios
 {
     public class FiltroListaSuspenso
     {
@@ -50,7 +51,7 @@ namespace devindocuments.Classes
                     Console.WriteLine("Não foram encontrados itens na lista");
                 }
             }
-        }  
+        }
         public void FiltroListaContrato()
         {
             foreach (var item in ListaDocuments.ListaContrato)

@@ -1,13 +1,14 @@
-using devindocuments.Menu;
-namespace devindocuments.Classes
+using devindocuments.Menu.MenuEnum;
+
+namespace devindocuments.Relatorios
 {
-    public class FiltroListaTramitacao
+    public class FiltroListasAtivo
     {
         public void FiltroListaNotas()
         {
             foreach (var item in ListaDocuments.ListaNotaFiscal)
             {
-                if (item.StatusDocumento == StatusDocumentoEnum.EmTramitacao)
+                if (item.StatusDocumento == StatusDocumentoEnum.Ativo)
                 {
                     Console.WriteLine($"================= RELATÓRIO DE CONTRATOS =================\n" +
                                       $"Id do Funcionario: {item.IdFuncionario}\n" +
@@ -32,7 +33,7 @@ namespace devindocuments.Classes
         {
             foreach (var item in ListaDocuments.ListaLicencaFuncionamento)
             {
-                if (item.StatusDocumento == StatusDocumentoEnum.EmTramitacao)
+                if (item.StatusDocumento == StatusDocumentoEnum.Ativo)
                 {
                     Console.WriteLine($"================= RELATÓRIO DE CONTRATOS =================\n" +
                                       $"Id do Funcionario: {item.IdFuncionario}\n" +
@@ -55,7 +56,7 @@ namespace devindocuments.Classes
         {
             foreach (var item in ListaDocuments.ListaContrato)
             {
-                if (item.StatusDocumento == StatusDocumentoEnum.EmTramitacao)
+                if (item.StatusDocumento == StatusDocumentoEnum.Ativo)
                 {
                     Console.WriteLine($"================= RELATÓRIO DE CONTRATOS =================\n" +
                                       $"Id do Funcionario: {item.IdFuncionario}\n" +
