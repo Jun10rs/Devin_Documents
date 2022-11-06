@@ -9,7 +9,10 @@ funcionario.DataNascimento = new DateTime(1988, 06, 12);
 funcionario.Filiacao = "Pai e Mãe";
 funcionario.DataAdmissao = new DateTime(2002, 08, 15);
 
-//CODIGOS DESCOMENTADOS POR CAUSA DA PROF
+var filtroAtivo = new FiltroListasAtivo();
+var filtroSuspenso = new FiltroListaSuspenso();
+var filtroTramitacao = new FiltroListaTramitacao();
+var AlterarStatus = new AlterarStatus();
 
 NotaFiscal listaNotaFiscal = new NotaFiscal();
 LicencaFuncionamento listaLicencaFuncionamento = new LicencaFuncionamento();
@@ -74,12 +77,13 @@ while (true)
             Console.WriteLine("Digite o Valor do Imposto");
             decimal valorTotalImposto = decimal.Parse(Console.ReadLine());
 
-            NotaFiscal novaNota = new NotaFiscal(dataAlteracao: null, nomeEstabelecimento: nomeEstabelecimento,
-            cpnj: cnpj, statusDocumento: statusDocumentoEnum, idFuncionario: funcionario.IdFuncionario);
-            novaNota.ValorNotaFiscal = valorNotaFiscal;
-            novaNota.NomeProdutoVendido = nomeProdutoVendido;
-            novaNota.TipoImposto = tipoImpostoEnum;
-            novaNota.ValorTotalImposto = valorTotalImposto;
+            NotaFiscal novaNota = new NotaFiscal
+            (
+                dataAlteracao: null, nomeEstabelecimento: nomeEstabelecimento, cpnj: cnpj,
+                statusDocumento: statusDocumentoEnum, idFuncionario: funcionario.IdFuncionario,
+                valorNotaFiscal: valorNotaFiscal, nomeProdutoVendido: nomeProdutoVendido,
+                tipoImpostoEnum: tipoImpostoEnum, valorTotalImposto: valorTotalImposto
+            );
             listaNotaFiscal.CadastrarDocumento(novaNota);
             Console.WriteLine("===== Nota Fiscal cadastrada com Sucesso =====");
         }
@@ -108,8 +112,12 @@ while (true)
                               $"5 - {AreaAtuacaoEnum.Outro}\n");
             var selecaoAtuacao = SelecaoAreaAtuacao.AreaAtuacao(Console.ReadLine());
 
-            LicencaFuncionamento novaLicenca = new LicencaFuncionamento(dataAlteracao: null, nomeEstabelecimento: nomeEstabelecimento, cpnj: cnpj,
-                                                statusDocumento: statusLicencaEnum, idFuncionario: funcionario.IdFuncionario);
+            LicencaFuncionamento novaLicenca = new LicencaFuncionamento
+            (
+                dataAlteracao: null, nomeEstabelecimento: nomeEstabelecimento, cpnj: cnpj,
+                statusDocumento: statusLicencaEnum, idFuncionario: funcionario.IdFuncionario,
+                endereco: endereco, areaAtuacaoEnum: selecaoAtuacao
+            );
             listaLicencaFuncionamento.CadastrarDocumento(novaLicenca);
             Console.WriteLine("===== Licença de Funcionamento Cadastrada com sucesso =====");
         }
@@ -136,37 +144,98 @@ while (true)
             Console.WriteLine("Digite a Data de Expiração(ex:dd/MM/yyyy)");
             DateTime dataExpiracao = DateTime.Parse(Console.ReadLine());
 
-            Contrato novoContrato = new Contrato(dataAlteracao: null, nomeEstabelecimento: nomeEstabelecimento, cpnj: cnpj,
-                                        statusDocumento: statusContratoEnum, idFuncionario: funcionario.IdFuncionario);
+            Contrato novoContrato = new Contrato
+            (
+                dataAlteracao: null, nomeEstabelecimento: nomeEstabelecimento, cpnj: cnpj,
+                statusDocumento: statusContratoEnum, idFuncionario: funcionario.IdFuncionario,
+                finalidade: finalidade, testemunhas: testemunhas, dataExpiracao: dataExpiracao);
             listaContrato.CadastrarDocumento(novoContrato);
         }
     }
     else if (respostaMenu == "2")
     {
-        Console.WriteLine($"Selecione um tipo de Lista:\n" +
-                          $"1 - Lista de Notas Fiscais\n" +
-                          $"2 - Lista de Licença de Funcionamento\n" +
-                          $"3 - Lista de Contratos");
-        string respostaListas = Console.ReadLine();
+        Console.WriteLine($"Selecione um tipo de Relatório:\n" +
+                          $"1 - Relatório Completo\n" +
+                          $"2 - Relatório por Status\n" +
+                          $"3 - Relatório por tipo de Documento\n" +
+                          $"4 - Total de Relatórios");
+        string respostaRelatorio = Console.ReadLine();
 
-        if (respostaListas == "1")
+        if (respostaRelatorio == "1")
         {
-            foreach (var item in ListaDocuments.ListaNotaFiscal)
-            {
-                Console.WriteLine($"=========== Lista de Notas Fiscais ============\n" +
-                $"Id do Funcionario: {item.IdFuncionario}\n" +
-                $"Codigo do documento: {item.CodigoDocumento}\n" +
-                $"Data de Cadastro: {item.DataCadastro}\n" +
-                $"Nome Estabelecimento {item.NomeEstabelecimento}\n" +
-                $"Status do Documento: {item.StatusDocumento}\n" +
-                $"Valor da Nota Fiscal: {item.ValorNotaFiscal}\n" +
-                $"Nome do Produto Vendido: {item.NomeProdutoVendido}\n" +
-                $"Tipo de Imposto: {item.TipoImposto}\n" +
-                $"Valor Total imposto: {item.ValorTotalImposto}\n" +
-                $"=========== Final da Lista de Notas Fiscais ============\n");
-            }    
+            listaNotaFiscal.ListarDocumentos();
+            listaLicencaFuncionamento.ListarDocumentos();
+            listaContrato.ListarDocumentos();
         }
+        else if (respostaRelatorio == "2")
+        {
+            Console.WriteLine($"Selecione o tipo de Status:\n" +
+                              $"1 - Ativo\n" +
+                              $"2 - Em Tramitação\n" +
+                              $"3 - Suspenso");
+            string respotaTipoStatus = Console.ReadLine();
+
+            if (respotaTipoStatus == "1")
+            {
+                filtroAtivo.FiltroListaNotas();
+                filtroAtivo.FiltroListaLicenca();
+                filtroAtivo.FiltroListaContrato();
+            }
+
+            else if (respotaTipoStatus == "2")
+            {
+                filtroTramitacao.FiltroListaNotas();
+                filtroTramitacao.FiltroListaLicenca();
+                filtroTramitacao.FiltroListaContrato();
+            }
+
+            else if (respotaTipoStatus == "3")
+            {
+                filtroSuspenso.FiltroListaNotas();
+                filtroSuspenso.FiltroListaLicenca();
+                filtroSuspenso.FiltroListaContrato();
+            }
+        }
+        else if (respostaRelatorio == "3")
+        {
+            Console.WriteLine($"Selecione o tipo de Documento\n" +
+                              $"1 - Nota Fiscal\n" +
+                              $"2 - Licença de Funcionamento\n" +
+                              $"3 - Contratos");
+            string respostaTipoDoc = Console.ReadLine();
+
+            if (respostaTipoDoc == "1")
+            {
+                listaNotaFiscal.ListarDocumentos();
+            }
+            else if (respostaTipoDoc == "2")
+            {
+                listaLicencaFuncionamento.ListarDocumentos();
+            }
+            else
+            {
+                listaContrato.ListarDocumentos();
+            }
+        }
+        else if (respostaRelatorio == "4")
+        {
+            listaContrato.TotalRelatorio();
+        }
+    }
+    else if (respostaMenu == "3")
+    {
 
     }
-
+    else if (respostaMenu == "4")
+    {
+        Console.WriteLine("Foram encontrados estes documentos");
+        filtroAtivo.FiltroListaNotas();
+        filtroAtivo.FiltroListaLicenca();
+        filtroAtivo.FiltroListaContrato();
+        AlterarStatus.AlterarStatusDocumento();
+    }
+    else if (respostaMenu == "0")
+    {
+        break;
+    }
 }

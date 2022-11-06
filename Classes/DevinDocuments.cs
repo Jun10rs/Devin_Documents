@@ -3,11 +3,11 @@ namespace devindocuments.Classes
 {
     public class DevinDocuments
     {
-        private string? _codigoDocumento;
+        private string _codigoDocumento;
         private DateTime _dataCadastro;
         private DateTime? _dataAlteracao;
-        private string? _nomeEstabelecimento;
-        private string? _cpnj;
+        private string _nomeEstabelecimento;
+        private string _cpnj;
         private StatusDocumentoEnum _statusDocumento;
         private int _idFuncionario;
 
@@ -26,10 +26,12 @@ namespace devindocuments.Classes
         public string NomeEstabelecimento
         {
             get{return this._nomeEstabelecimento;}
+            set{this._nomeEstabelecimento = value;}
         }
         public string CNPJ
         {
             get{return this._cpnj;}
+            set{this._cpnj = value;}
         }
          public StatusDocumentoEnum StatusDocumento
         {

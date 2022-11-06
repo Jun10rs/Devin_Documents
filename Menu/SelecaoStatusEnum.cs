@@ -1,6 +1,4 @@
-using devindocuments.Menu;
-
-namespace devindocuments.Classes
+namespace devindocuments.Menu
 {
     public class SelecaoStatusEnum
     {
