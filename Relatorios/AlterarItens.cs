@@ -7,12 +7,11 @@ namespace devindocuments.Relatorios
     {
         public void AlterarItensDocumento()
         {
-            Console.WriteLine("==================== DOCUMENTOS ENCONTRADOS ====================");
             Console.WriteLine("Digite os 5 primeiros digitos do Código do Documento que deseja alterar.");
             var editar = Console.ReadLine();
             if (editar.Length != 5)
             {
-                Console.WriteLine("Código não encontrado, digite um valor válido novamente!");
+                Console.WriteLine("----- Opção não encontrada. Por favor digite um valor válido -----\n");
             }
             else
             {
@@ -104,7 +103,7 @@ namespace devindocuments.Relatorios
                 }
                 else
                 {
-                    Console.WriteLine("Itens não alterado!");
+                    Console.WriteLine("--------- ITENS NÃO ALTERADOS ---------");
                 }
             }
         }

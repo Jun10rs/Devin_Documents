@@ -42,16 +42,16 @@ namespace devindocuments.Classes
                 foreach (var item in ListaDocuments.ListaContrato)
                 {
                     Console.WriteLine($"====================== RELATÓRIO DE CONTRATOS =======================\n" +
-                                      $"Id do Funcionario: {item.IdFuncionario}\n" +
-                                      $"Codigo do documento: {item.CodigoDocumento}\n" +
-                                      $"Data de Cadastro: {item.DataCadastro}\n" +
-                                      $"Data Alteração: {item.DataAlteracao}\n" +
-                                      $"Nome Estabelecimento {item.NomeEstabelecimento}\n" +
-                                      $"Numero CNPJ: {item.CNPJ}\n" +
-                                      $"Status do Documento: {item.StatusDocumento}\n" +
-                                      $"Finalidade: {item.Finalidade}\n" +
-                                      $"Testemunhas: {item.Testemunhas}\n" +
-                                      $"Data de Expiração: {item.DataExpiracao}\n" +
+                                      $"= Id do Funcionario: {item.IdFuncionario}\n" +
+                                      $"= Codigo do documento: {item.CodigoDocumento}\n" +
+                                      $"= Data de Cadastro: {item.DataCadastro}\n" +
+                                      $"= Data Alteração: {item.DataAlteracao}\n" +
+                                      $"= Nome Estabelecimento {item.NomeEstabelecimento}\n" +
+                                      $"= Numero CNPJ: {item.CNPJ}\n" +
+                                      $"= Status do Documento: {item.StatusDocumento}\n" +
+                                      $"= Finalidade: {item.Finalidade}\n" +
+                                      $"= Testemunhas: {item.Testemunhas}\n" +
+                                      $"= Data de Expiração: {item.DataExpiracao}\n" +
                                       $"====================== RELATÓRIO DE CONTRATOS =======================\n");
                 }
             }
@@ -59,10 +59,12 @@ namespace devindocuments.Classes
         public void TotalRelatorio()
         {
             int soma = ListaDocuments.ListaContrato.Count + ListaDocuments.ListaNotaFiscal.Count + ListaDocuments.ListaLicencaFuncionamento.Count;
-            Console.WriteLine($"Foram encontrados {ListaDocuments.ListaNotaFiscal.Count} relatórios de Notas Fiscais\n" +
-                              $"Foram encontrados {ListaDocuments.ListaLicencaFuncionamento.Count} relatórios de Licença de Funcionamento\n" +
-                              $"Foram encontrados {ListaDocuments.ListaContrato.Count} relatórios de Contratos\n" +
-                              $"TOTAL DE RELATÓRIOS: {soma} relatórios");
+            Console.WriteLine($"====================== TOTAL DE RELATÓRIOS =======================\n" +
+                              $"= Foram encontrados {ListaDocuments.ListaNotaFiscal.Count} relatório (s) de Notas Fiscais\n" +
+                              $"= Foram encontrados {ListaDocuments.ListaLicencaFuncionamento.Count} relatório (s) de Licença de Funcionamento\n" +
+                              $"= Foram encontrados {ListaDocuments.ListaContrato.Count} relatório (s) de Contratos\n" +
+                              $"= TOTAL DE RELATÓRIOS: {soma} relatórios\n" +
+                              $"====================== TOTAL DE RELATÓRIOS =======================\n");
         }
     }
 }
