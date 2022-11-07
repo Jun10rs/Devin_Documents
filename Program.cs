@@ -177,9 +177,11 @@ while (true)
             }
             else if (respostaRelatorio == "1")
             {
+                Console.WriteLine("########################## RELATÓRIO COMPLETO ##########################");
                 listaNotaFiscal.ListarDocumentos();
                 listaLicencaFuncionamento.ListarDocumentos();
                 listaContrato.ListarDocumentos();
+                Console.WriteLine("########################## FIM RELATÓRIO COMPLETO ##########################");
             }
             else if (respostaRelatorio == "2")
             {

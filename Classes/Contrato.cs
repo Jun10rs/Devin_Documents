@@ -60,10 +60,10 @@ namespace devindocuments.Classes
         {
             int soma = ListaDocuments.ListaContrato.Count + ListaDocuments.ListaNotaFiscal.Count + ListaDocuments.ListaLicencaFuncionamento.Count;
             Console.WriteLine($"====================== TOTAL DE RELATÓRIOS =======================\n" +
-                              $"= Foram encontrados {ListaDocuments.ListaNotaFiscal.Count} relatório (s) de Notas Fiscais\n" +
-                              $"= Foram encontrados {ListaDocuments.ListaLicencaFuncionamento.Count} relatório (s) de Licença de Funcionamento\n" +
-                              $"= Foram encontrados {ListaDocuments.ListaContrato.Count} relatório (s) de Contratos\n" +
-                              $"= TOTAL DE RELATÓRIOS: {soma} relatórios\n" +
+                              $"= Foram encontrados {ListaDocuments.ListaNotaFiscal.Count} relatório (s) de Notas Fiscais.\n" +
+                              $"= Foram encontrados {ListaDocuments.ListaLicencaFuncionamento.Count} relatório (s) de Licença de Funcionamento.\n" +
+                              $"= Foram encontrados {ListaDocuments.ListaContrato.Count} relatório (s) de Contratos.\n" +
+                              $"= TOTAL DE RELATÓRIOS: {soma} RELATÓRIOS.\n" +
                               $"====================== TOTAL DE RELATÓRIOS =======================\n");
         }
     }
